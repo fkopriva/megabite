@@ -17,7 +17,7 @@ pubgRouter.get(
 pubgRouter.get(
   "/data",
   expressAsyncHandler(async (req, res) => {
-    //await Pubg.remove({});
+    // await Pubg.remove({});
     const createdMaps = await Pubg.insertMany(data.pubgMaps);
     res.send({ createdMaps });
   })

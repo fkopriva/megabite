@@ -2,27 +2,35 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./modal.css";
 import { useDispatch, useSelector } from "react-redux";
-import { signin } from "../actions/userActions";
+import { register } from "../actions/userActions";
 import { useState } from "react";
 import LoadingBox from "./LoadingBox";
 import MessageBox from "./MessageBox";
 
-function Modal(props) {
-  const { handleClose, show } = props;
+function ModalRegister(props) {
+  const { handleClose, registerShow } = props;
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo, loading, error } = userSignin;
+  const userRegister = useSelector((state) => state.userRegister);
+  const { userInfo, loading, error } = userRegister;
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email, password));
+    if (password !== confirmPassword) {
+      alert("Password and confirm password are not match");
+    } else {
+      dispatch(register(name, email, password));
+    }
   };
 
   return (
-    <div className={show ? "modal display-block" : "modal display-none"}>
+    <div
+      className={registerShow ? "modal display-block" : "modal display-none"}
+    >
       {" "}
       <section className="modal-main">
         <div className="close-button">
@@ -36,11 +44,19 @@ function Modal(props) {
             {loading && <LoadingBox></LoadingBox>}
             {error && <MessageBox variant="danger">{error}</MessageBox>}
             <div>
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter name"
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
               <label htmlFor="email">Email</label>
               <input
                 type="text"
                 id="email"
-                placeholder="email"
+                placeholder="Enter email"
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -48,9 +64,17 @@ function Modal(props) {
               <input
                 type="password"
                 id="password"
-                placeholder="password"
+                placeholder="Enter password"
                 required
                 onChange={(e) => setPassword(e.target.value)}
+              />
+              <label htmlFor="confirmPassword">Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Enter confirm password"
+                required
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
             <div className="button-wrapper">
@@ -65,4 +89,4 @@ function Modal(props) {
   );
 }
 
-export default Modal;
+export default ModalRegister;

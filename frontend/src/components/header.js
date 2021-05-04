@@ -5,9 +5,11 @@ import { signout } from "../actions/userActions";
 import ModalLogin from "../components/modalLogin";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ModalRegister from "./ModalRegister";
 
 export default function Header(props) {
   const [show, setShow] = useState(false);
+  const [registerShow, setRegisterShow] = useState(false);
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
@@ -34,6 +36,7 @@ export default function Header(props) {
     case "/pubgAbout":
     case "/pubgMaps":
     case `/pubgMaps/${pubgMap ? pubgMap._id : ""}/`:
+    case `/pubgMaps/${pubgMap ? pubgMap._id : ""}`:
       headerColor = "#e0ca5e";
       break;
     case "/valorant":
@@ -76,16 +79,29 @@ export default function Header(props) {
           </div>
         </div>
       ) : (
-        <div>
-          <ModalLogin
-            show={show}
-            handleClose={() => {
-              setShow(false);
-            }}
-          ></ModalLogin>
-          <button type="button" onClick={() => setShow(true)}>
-            Sign In
-          </button>
+        <div class="header-login">
+          <div>
+            <ModalRegister
+              registerShow={registerShow}
+              handleClose={() => {
+                setRegisterShow(false);
+              }}
+            ></ModalRegister>
+            <button type="button" onClick={() => setRegisterShow(true)}>
+              Register
+            </button>
+          </div>
+          <div>
+            <ModalLogin
+              show={show}
+              handleClose={() => {
+                setShow(false);
+              }}
+            ></ModalLogin>
+            <button type="button" onClick={() => setShow(true)}>
+              Sign In
+            </button>
+          </div>
         </div>
       )}
     </div>

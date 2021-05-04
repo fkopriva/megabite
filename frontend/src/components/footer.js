@@ -29,6 +29,7 @@ export default function Footer() {
     case "/pubgAbout":
     case "/pubgMaps":
     case `/pubgMaps/${pubgMap ? pubgMap._id : ""}/`:
+    case `/pubgMaps/${pubgMap ? pubgMap._id : ""}`:
       footerBgColor = "#e0ca5e";
       footerColor = "black";
       break;

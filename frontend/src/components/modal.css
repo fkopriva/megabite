@@ -27,6 +27,15 @@
 
 .modal-col {
   max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.grid-modal-container {
+  display: grid;
+  grid-template-rows: 15% 85%;
 }
 
 .display-block {
@@ -100,4 +109,5 @@ input {
   flex-direction: row !important;
   justify-content: center;
   margin-top: 3rem !important;
+  margin-bottom: 5rem !important;
 }

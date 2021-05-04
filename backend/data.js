@@ -12,6 +12,31 @@ const data = {
       image: "./images/nahledmiramar.jpg",
       description: "fsdfjsaofjksfas",
     },
+    {
+      name: "haven",
+      image: "./images/nahledhaven.jpg",
+      description: "sadfasskfsf",
+    },
+    {
+      name: "karakin",
+      image: "./images/nahledkarakin.jpg",
+      description: "sfasffasd",
+    },
+    {
+      name: "paramo",
+      image: "./images/nahledparamo.jpg",
+      description: "sfasffasd",
+    },
+    {
+      name: "sanhok",
+      image: "./images/nahledsanhok.jpg",
+      description: "sfasffasd",
+    },
+    {
+      name: "vikendi",
+      image: "./images/nahledvikendi.jpg",
+      description: "sfasffasd",
+    },
   ],
   users: [
     {
