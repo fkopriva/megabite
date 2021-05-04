@@ -1,0 +1,12 @@
+ul li {
+  display: inline-block;
+}
+
+img.nahled {
+  width: 300px;
+  height: 480px;
+  filter: saturate(150%);
+}
+img.nahled:hover {
+  filter: brightness(120%);
+}

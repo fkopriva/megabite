@@ -1,0 +1,28 @@
+img.big {
+  width: 50rem;
+}
+.row {
+  justify-content: center;
+}
+
+.col-1 {
+  max-width: 600px;
+}
+
+.mr-2 {
+  margin-right: 2rem;
+}
+.parallaxlol {
+  background-image: url("lol2.jpg");
+  height: 900px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+h2 {
+  font-family: "Audiowide", cursive;
+}
